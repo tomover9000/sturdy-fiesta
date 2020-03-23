@@ -20,6 +20,15 @@ Game::Game(int windowWidth, int windowHeight, Uint32 flags) {
 void Game::render() {
     SDL_SetRenderDrawColor( renderer, 0, 0, 0, 255 );
     SDL_RenderClear(renderer);
+
+    for(int i=0;i<actors.size();i++){
+        actors[i]->displayObj();
+    }
+    
+}
+
+void Game::addActor(){
+        actors.push_back(new GameObj(100, 100, 0, 0, "ccc", this->renderer));
 }
 
 void Game::processEvents() {

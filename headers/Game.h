@@ -3,6 +3,8 @@
 #define GAME_H
 #include <SDL2/SDL.h>
 #include <stdio.h>
+#include <vector>
+#include "GameObj.h"
 
 class Game{
 public:
@@ -11,6 +13,8 @@ public:
 
     void render();
     void processEvents();
+
+    void addActor();
 
     bool shouldExit(){
         return quit;
@@ -21,6 +25,8 @@ private:
     SDL_Window* window;
     SDL_Renderer* renderer;
     SDL_Event event;
+
+    std::vector<GameObj*> actors;
 
     bool quit = false;
 };
