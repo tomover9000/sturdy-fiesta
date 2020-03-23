@@ -10,7 +10,7 @@ GameObj::GameObj(int width, int height, int x, int y, std::string color, SDL_Ren
 }
 
 void GameObj::displayObj() {
-    SDL_SetRenderDrawColor( renderer, 0, 0, 255, 255 );
+    SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
     SDL_RenderFillRect(renderer, &obj);
     SDL_RenderPresent(renderer);
 }
