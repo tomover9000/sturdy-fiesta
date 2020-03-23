@@ -1,11 +1,12 @@
 #include "headers/Game.h"
-#include <stdio.h>
+
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 700;
 const int SCREEN_HEIGHT = 700;
 
 int main(int argc, char* argv[]) {
+    printf("Game started...\r\n");
     Game * game = new Game(700, 700, 0);
 
     while(!game->shouldExit()){
@@ -14,6 +15,6 @@ int main(int argc, char* argv[]) {
     }
 
     /* Clean Up */
-    delete game;
+    game->CloseApp();
     return 0;
 }

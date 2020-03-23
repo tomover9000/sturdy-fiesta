@@ -6,7 +6,7 @@ Game::Game(int windowWidth, int windowHeight, Uint32 flags) {
             return;
 
     // Create the window where we will draw.
-    window = SDL_CreateWindow("SDL_RenderClear", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, windowWidth, windowHeight, flags);
+    window = SDL_CreateWindow("Platformer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, windowWidth, windowHeight, flags);
 
     // We must call SDL_CreateRenderer in order for draw calls to affect this window.
     renderer = SDL_CreateRenderer(window, -1, 0);
@@ -23,14 +23,19 @@ void Game::render() {
 }
 
 void Game::processEvents() {
-    SDL_PollEvent( event );
-    switch(event->type){
-        case SDL_QUIT:
-            quit = true;
+    while(SDL_PollEvent( &event )){
+        switch(event.type){
+            case SDL_QUIT:
+                quit = true;
+        }
     }
 
 }
 
-Game::~Game() {
+void Game::CloseApp(){
     SDL_Quit();
+}
+
+Game::~Game() {
+    
 }

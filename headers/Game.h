@@ -2,6 +2,7 @@
 #ifndef GAME_H
 #define GAME_H
 #include <SDL2/SDL.h>
+#include <stdio.h>
 
 class Game{
 public:
@@ -14,10 +15,12 @@ public:
     bool shouldExit(){
         return quit;
     }
+
+    void CloseApp();
 private:
     SDL_Window* window;
     SDL_Renderer* renderer;
-    SDL_Event * event;
+    SDL_Event event;
 
     bool quit = false;
 };
