@@ -4,11 +4,10 @@
 //Screen dimension constants
 const int SCREEN_WIDTH = 700;
 const int SCREEN_HEIGHT = 700;
-const Uint8 *state = SDL_GetKeyboardState(NULL);
 
 int main(int argc, char* argv[]) {
     Game * game = new Game(700, 700, 0);
-    
+
     while(!game->shouldExit()){
         game->render();
         game->processEvents();
