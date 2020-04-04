@@ -22,17 +22,25 @@ void Game::render() {
     SDL_RenderClear(renderer);
 
     for(int i=0;i<actors.size();i++){
-        actors[i]->displayObj();
+        actors[i]->display();
     }
     
 }
 
 void Game::addActor(){
-        actors.push_back(new GameObj(100, 100, 0, 0, "ccc", this->renderer));
+    actors.push_back(new Square(100, 10, 10, "Red", renderer));
 }
 
 void Game::processEvents() {
-    while(SDL_PollEvent( &event )){
+    while(SDL_PollEvent(&event)) {
+
+        // Procesam input pt fiecare obiect 
+        // probabil trebuie sa facem asta doar pt obiectele dinamice
+        // vedem
+        for(int i=0;i<actors.size();i++){
+            actors[i]->processInput(&event);
+        }
+
         switch(event.type){
             case SDL_QUIT:
                 quit = true;

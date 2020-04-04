@@ -4,7 +4,7 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <vector>
-#include "GameObj.h"
+#include "Square.h"
 
 class Game{
 public:
@@ -13,7 +13,6 @@ public:
 
     void render();
     void processEvents();
-
     void addActor();
 
     bool shouldExit(){
@@ -26,7 +25,7 @@ private:
     SDL_Renderer* renderer;
     SDL_Event event;
 
-    std::vector<GameObj*> actors;
+    std::vector<Square*> actors;
 
     bool quit = false;
 };

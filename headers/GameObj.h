@@ -1,12 +1,16 @@
 #include <string>
 #include <SDL2/SDL.h>
 
+
+// Folosim asta ca parinte peste toate obiectele
 class GameObj {
-    private :
-        SDL_Rect obj;
+    protected :
         std::string color;
         SDL_Renderer* renderer;
     public :
-        GameObj(int width, int height, int x, int y, std::string color, SDL_Renderer*);
-        void displayObj();
+        GameObj(std::string color, SDL_Renderer*);
+        void display();
+        void update();
+        void processInput(SDL_Event*);
+        ~GameObj() {};
 };
